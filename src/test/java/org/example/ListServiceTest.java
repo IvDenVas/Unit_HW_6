@@ -2,6 +2,7 @@ package org.example;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -31,12 +32,18 @@ class ListServiceTest {
     }
 
     @Test
+    @DisplayName("Проверка метода на вычисление среднего значения")
     void getAverage() {
         assertEquals(2,listservice.getAverage(listData.getList1()));
         assertEquals(5,listservice.getAverage(listData.getList2()));
+        assertEquals(4,listservice.getAverage(listData1.getList1()));
+        assertEquals(3,listservice.getAverage(listData1.getList2()));
+        assertEquals(2,listservice.getAverage(listData2.getList1()));
+        assertEquals(2,listservice.getAverage(listData2.getList2()));
     }
 
     @Test
+    @DisplayName("Проверка метода на сравнение средних значений")
     void compareAverage() {
         assertEquals("Второй список имеет большее среднее значение", listservice.compareAverage(listData));
         assertEquals("Первый список имеет большее среднее значение", listservice.compareAverage(listData1));
